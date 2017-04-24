@@ -27,3 +27,15 @@ int usage(char* exec_name)
 	write(STDERR, s1, strlen(s1));
 	return 0;
 }
+
+int print_err(char* msg, int err)
+{
+	char* colon = ": ";
+	char* serr = strerror(err);
+	char* newline = "\n";
+	write(STDERR, msg, strlen(msg));
+	write(STDERR, colon, strlen(colon));
+	write(STDERR, serr, strlen(serr));
+	write(STDERR, newline, strlen(newline));
+	return 0;
+}
